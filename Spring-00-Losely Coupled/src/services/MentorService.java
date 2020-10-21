@@ -1,2 +1,6 @@
-package abstraction;public interface Mentor {
+package services;
+
+public interface MentorService {
+
+    void createAccount();
 }

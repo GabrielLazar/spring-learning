@@ -3,16 +3,19 @@
 ######################
 /build/www/**
 /src/test/javascript/coverage/
-/src/test/javascript/PhantomJS*/######################
+/src/test/javascript/PhantomJS*/
+######################
 # Node
 ######################
 /node/
 node_tmp/
 node_modules/
-npm-debug.log.*######################
+npm-debug.log.*
+######################
 # SASS
 ######################
-.sass-cache/######################
+.sass-cache/
+######################
 # Eclipse
 ######################
 *.pydevproject
@@ -33,7 +36,8 @@ local.properties
 .externalToolBuilders/**# Locally stored “Eclipse launch configurations”
 *.launch# CDT-specific
 .cproject# PDT-specific
-.buildpath######################
+.buildpath
+######################
 # Intellij
 ######################
 .idea/
@@ -41,55 +45,67 @@ local.properties
 *.iws
 *.ipr
 *.ids
-*.orig######################
+*.orig
+######################
 # Visual Studio Code
 ######################
-.vscode/######################
+.vscode/
+######################
 # Maven
 ######################
 /log/
-/target/######################
+/target/
+######################
 # Gradle
 ######################
 .gradle/
-/build/######################
+/build/
+######################
 # Package Files
 ######################
 *.jar
 *.war
 *.ear
-*.db######################
+*.db
+######################
 # Windows
 ######################
 # Windows image file caches
 Thumbs.db# Folder config file
-Desktop.ini######################
+Desktop.ini
+######################
 # Mac OSX
 ######################
 .DS_Store
 .svn# Thumbnails
 ._*# Files that might appear on external disk
 .Spotlight-V100
-.Trashes######################
+.Trashes
+######################
 # Directories
 ######################
 /bin/
-/deploy/######################
+/deploy/
+######################
 # Logs
 ######################
-*.log######################
+*.log
+######################
 # Others
 ######################
 *.class
 *.*~
 *~
-.merge_file*######################
+.merge_file*
+######################
 # Gradle Wrapper
 ######################
-!gradle/wrapper/gradle-wrapper.jar######################
+!gradle/wrapper/gradle-wrapper.jar
+######################
 # Maven Wrapper
 ######################
-!.mvn/wrapper/maven-wrapper.jar######################
+!.mvn/wrapper/maven-wrapper.jar
+######################
 # ESLint
 ######################
 .eslintcache
