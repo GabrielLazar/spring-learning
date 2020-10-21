@@ -7,17 +7,12 @@ public class Java implements Course {
 
     ExtraHours extraHours;
 
+    public Java(ExtraHours extraHours) {
+        this.extraHours = extraHours;
+    }
 
     @Override
     public void getTeachingHours() {
         System.out.println("Weekly teaching Hours: " + (20 + extraHours.getHours()));
-    }
-
-    public ExtraHours getExtraHours() {
-        return extraHours;
-    }
-
-    public void setExtraHours(ExtraHours extraHours) {
-        this.extraHours = extraHours;
     }
 }
