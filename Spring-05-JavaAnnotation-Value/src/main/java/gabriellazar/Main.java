@@ -14,6 +14,7 @@ public class Main {
 
         Course course = context.getBean("java",Course.class);
 
+
         course.getTeachingHours();
     }
 
