@@ -4,13 +4,19 @@ package gabriellazar.implementation;
 import gabriellazar.services.Course;
 import gabriellazar.services.ExtraSessions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Java implements Course {
 
+    @Value("${instructor}")
+    private String instructor;
+
     //field injection
     @Autowired
+    @Qualifier("officeHours")
     ExtraSessions extraSessions;
 
     /*
@@ -24,7 +30,7 @@ public class Java implements Course {
 
     @Override
     public void getTeachingHours() {
-        System.out.println("Weekly teaching hours " + (30 + extraSessions.getHours()));
+        System.out.println(instructor);
     }
 
 
