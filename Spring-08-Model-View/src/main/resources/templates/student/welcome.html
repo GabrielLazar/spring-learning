@@ -12,8 +12,8 @@
         <h4 th:text="${course}"></h4>
         <h4 th:text="${subject}"></h4>
         <h4 th:text="${id}"></h4>
-        <h4 th:text="${number}"></h4>
-        <h4 th:text="${number.get(0)}"></h4>
+        <h4 th:text="${numbers}"></h4>
+        <h4 th:text="${numbers.get(0)}"></h4>
         <h4 th:text="${timeStamp}"></h4>
 
         <h4 th:text="${student.fname}"></h4>
@@ -31,6 +31,11 @@
             <a th:href="@{/student/register(id=${student.id})}">Parameter LINK</a>
         </button>
 
+    <!-- ITERATING -->
+
+        <ul th:each="number : ${numbers}">
+            <li th:text="${number}"></li>
+        </ul>
 
     </body>
 </html>

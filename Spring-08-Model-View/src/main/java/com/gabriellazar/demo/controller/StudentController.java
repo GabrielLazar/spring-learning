@@ -35,7 +35,7 @@ public class StudentController {
        numbers.add(2);
        numbers.add(3);
 
-       model.addAttribute("number",numbers);
+       model.addAttribute("numbers",numbers);
 
         LocalDate lc = LocalDate.now();
         model.addAttribute("timeStamp",lc);
