@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <!--  TEXT -->
+    <body>
+        <h4 th:text="${'Hello ' + name}"></h4>
+        <h4 th:text="${course}"></h4>
+        <h4 th:text="${subject}"></h4>
+        <h4 th:text="${id}"></h4>
+        <h4 th:text="${number}"></h4>
+        <h4 th:text="${number.get(0)}"></h4>
+        <h4 th:text="${timeStamp}"></h4>
+    </body>
+</html>
