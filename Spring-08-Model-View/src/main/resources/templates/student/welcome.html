@@ -15,5 +15,16 @@
         <h4 th:text="${number}"></h4>
         <h4 th:text="${number.get(0)}"></h4>
         <h4 th:text="${timeStamp}"></h4>
+
+        <h4 th:text="${student.fname}"></h4>
+
+    <!-- LINK -->
+        <button>
+            <a th:href="@{https://www.google.com}">Google</a>
+        </button>
+        <button>
+            <a th:href="@{/student/register}">Register here</a>
+        </button>
+
     </body>
 </html>

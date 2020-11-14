@@ -1,5 +1,6 @@
 package com.gabriellazar.demo.controller;
 
+import com.gabriellazar.demo.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +40,15 @@ public class StudentController {
         LocalDate lc = LocalDate.now();
         model.addAttribute("timeStamp",lc);
 
+        Student student = new Student(1,"Gabi","Lazar");
+        model.addAttribute("student", student);
+
         return "student/welcome";
+    }
+
+    @GetMapping("/register")
+    public String student2(Model model){
+        return "student/register";
     }
 
 }
