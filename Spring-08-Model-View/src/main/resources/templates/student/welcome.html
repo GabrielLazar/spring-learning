@@ -36,6 +36,9 @@
         <ul th:each="number : ${numbers}">
             <li th:text="${number}"></li>
         </ul>
+    <!-- FRAGMENT -->
+
+    <div th:replace="fragments/footer :: footer"></div>
 
     </body>
 </html>
