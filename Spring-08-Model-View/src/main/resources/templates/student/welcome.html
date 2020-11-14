@@ -26,5 +26,11 @@
             <a th:href="@{/student/register}">Register here</a>
         </button>
 
+        <!-- ADDING PARAMETERS TO LINK-->
+        <button>
+            <a th:href="@{/student/register(id=${student.id})}">Parameter LINK</a>
+        </button>
+
+
     </body>
 </html>
