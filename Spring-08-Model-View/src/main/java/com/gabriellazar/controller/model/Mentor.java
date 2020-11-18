@@ -1,4 +1,4 @@
-package com.gabriellazar.demo.model;
+package com.gabriellazar.controller.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

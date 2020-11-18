@@ -1,7 +1,7 @@
-package com.gabriellazar.demo.controller;
+package com.gabriellazar.controller.controller;
 
-import com.gabriellazar.demo.model.Gender;
-import com.gabriellazar.demo.model.Mentor;
+import com.gabriellazar.controller.model.Gender;
+import com.gabriellazar.controller.model.Mentor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
