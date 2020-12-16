@@ -26,6 +26,10 @@ public class Employee  extends BaseEntity {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @OneToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
+
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, String gender, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
