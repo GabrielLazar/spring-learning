@@ -1,7 +1,7 @@
 package com.gabriellazar;
 
 import com.gabriellazar.model.Car;
-import com.gabriellazar.repository.CarRepository;
+import com.gabriellazar.orm.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

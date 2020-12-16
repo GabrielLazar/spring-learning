@@ -1,4 +1,4 @@
-package com.gabriellazar.repository;
+package com.gabriellazar.orm.repository;
 
 import com.gabriellazar.model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
