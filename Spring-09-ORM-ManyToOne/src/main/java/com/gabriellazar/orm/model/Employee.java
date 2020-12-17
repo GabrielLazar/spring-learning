@@ -21,7 +21,7 @@ public class Employee  extends BaseEntity {
     private String Gender;
     private int salary;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST},fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
 
