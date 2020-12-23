@@ -1,12 +1,18 @@
 package com.gabriellazar.derivedqueries.entity;
 
 import com.gabriellazar.derivedqueries.enums.Gender;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
+@Data
+@NoArgsConstructor
+@ToString
 public class Employee extends BaseEntity{
 
     private String first_name;
