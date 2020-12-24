@@ -18,4 +18,5 @@ public interface RegionRepository extends JpaRepository<Region,Long> {
     List<Region> findByCountryContainingOrderByRegion(String country);
 
     List<Region> findTop2ByCountry(String country);
+
 }
