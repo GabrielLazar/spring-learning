@@ -17,6 +17,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests() //request should be authorized
+                .antMatchers("index.html").permitAll()
+                .antMatchers("/profile/**").authenticated()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("management/**").hasAnyRole("ADMIN","MANAGER")
                 .anyRequest().authenticated() //incoming request be authenticated
                 .and()
                 .httpBasic();  //perform basic http authentication
@@ -28,7 +32,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        auth.inMemoryAuthentication()
                .withUser("admin").password(getPasswordEncoder().encode("admin")).roles("ADMIN")
                .and()
-               .withUser("Gabriel").password(getPasswordEncoder().encode("qwerty")).roles("USER");
+               .withUser("Gabriel").password(getPasswordEncoder().encode("qwerty")).roles("USER")
+       .and()
+       .withUser("manager").password(getPasswordEncoder().encode("manager123")).roles("MANAGER");
     }
 
     @Bean
