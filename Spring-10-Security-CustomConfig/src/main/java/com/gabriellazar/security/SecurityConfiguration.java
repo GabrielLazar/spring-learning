@@ -20,22 +20,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("index.html").permitAll()
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("management/**").hasAnyRole("ADMIN","MANAGER")
+                .antMatchers("/management/**").hasAnyRole("ADMIN","MANAGER")
                 .anyRequest().authenticated() //incoming request be authenticated
                 .and()
                 .httpBasic();  //perform basic http authentication
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-       auth.inMemoryAuthentication()
-               .withUser("admin").password(getPasswordEncoder().encode("admin")).roles("ADMIN")
-               .and()
-               .withUser("Gabriel").password(getPasswordEncoder().encode("qwerty")).roles("USER")
-       .and()
-       .withUser("manager").password(getPasswordEncoder().encode("manager123")).roles("MANAGER");
-    }
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//       auth.inMemoryAuthentication()
+//               .withUser("admin").password(getPasswordEncoder().encode("admin")).roles("ADMIN")
+//               .and()
+//               .withUser("Gabriel").password(getPasswordEncoder().encode("qwerty")).roles("USER")
+//       .and()
+//       .withUser("manager").password(getPasswordEncoder().encode("manager123")).roles("MANAGER");
+//    }
 
     @Bean
     PasswordEncoder getPasswordEncoder(){
