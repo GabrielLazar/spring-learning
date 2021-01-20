@@ -9,10 +9,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private UserPrincipalDetailsService userPrincipalDetailsService;
+
+    public SecurityConfiguration(UserPrincipalDetailsService userPrincipalDetailsService) {
+        this.userPrincipalDetailsService = userPrincipalDetailsService;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -20,10 +27,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("index.html").permitAll()
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/management/**").hasAnyRole("ADMIN","MANAGER")
+                .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
                 .anyRequest().authenticated() //incoming request be authenticated
                 .and()
-                .httpBasic();  //perform basic http authentication
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/index")
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout=true")
+                .and()
+                .rememberMe()
+                .tokenValiditySeconds(120)
+                .key("secret")
+                .userDetailsService(userPrincipalDetailsService);
+
+        //.httpBasic();  //perform basic http authentication
     }
 
 //    @Override
@@ -38,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //    }
 
     @Bean
-    PasswordEncoder getPasswordEncoder(){
+    PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }
