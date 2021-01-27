@@ -2,6 +2,7 @@ package com.gabriellazar.responseentity.controller;
 
 
 import com.gabriellazar.responseentity.entity.Product;
+import com.gabriellazar.responseentity.entity.ResponseWrapper;
 import com.gabriellazar.responseentity.service.ProductService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -54,10 +55,10 @@ public class ProductController {
 
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") long id, @RequestBody Product product) {
+    public ResponseEntity<ResponseWrapper> updateProduct(@PathVariable(value = "id") long id, @RequestBody Product product) {
 
         Product p = productService.updateProduct(id, product);
-        return ResponseEntity.ok(p);
+        return ResponseEntity.ok( new ResponseWrapper("Product Successfully Updated",p,HttpStatus.OK));
 
     }
 
