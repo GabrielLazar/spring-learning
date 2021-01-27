@@ -26,22 +26,21 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> delete(long id) {
+    public void delete(long id) {
         productRepository.deleteById(id);
-        return getProducts();
     }
 
     @Override
-    public List<Product> updateProduct(long id, Product product) {
+    public Product updateProduct(long id, Product product) {
         Product prod = getProduct(id);
-        BeanUtils.copyProperties(product,prod);
-        productRepository.saveAndFlush(prod);
-        return getProducts();
+        BeanUtils.copyProperties(product, prod);
+        return productRepository.saveAndFlush(prod);
+
     }
 
     @Override
-    public List<Product> createProduct(Product product) {
-        productRepository.saveAndFlush(product);
-       return getProducts();
+    public Product createProduct(Product product) {
+        return productRepository.saveAndFlush(product);
+
     }
 }
